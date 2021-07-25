@@ -18,7 +18,6 @@ public class App {
         return result;
     }
 
-
     public static void flipNHeads(int N){
         double randomNum;
         int count=0;
@@ -73,6 +72,8 @@ public class App {
 
            }
     }
+
+    
     public static void clock(){
         LocalDateTime now = LocalDateTime.now();
         int hour = now.getHour();
