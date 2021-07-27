@@ -31,8 +31,99 @@ public class Library {
                 {65, 56, 55, 52, 55, 62, 57}
         };
         lowestAvg(weeklyMonthTemperatures);
+//        findMinMAx(weeklyMonthTemperatures);
+        System.out.println("high:"+" "+ findMAx(weeklyMonthTemperatures));
+        System.out.println("low:"+" "+ findMin(weeklyMonthTemperatures));
+        for (int i = findMin(weeklyMonthTemperatures); i <=findMAx(weeklyMonthTemperatures) ; i++) {
+            findmis(weeklyMonthTemperatures,i);
+        }
+
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        String winner = tally(votes);
+        System.out.println(winner + " received the most votes!");
+        tally(votes);
+    }
+    public static String tally(List<String> arr){
+    HashMap<String,Integer> maxMap=new HashMap<>();
+    String voted="Null";
+    int maxVotes=0;
+        for (String s : arr) {
+         if(maxMap.containsKey(s)){
+             maxMap.put(s,maxMap.get(s)+1);
+         }
+         else
+         {
+             maxMap.put(s,1);
+         }
+        }
+
+        for(String s:maxMap.keySet())
+        {
+            if(maxVotes<=maxMap.get(s))
+            {
+                maxVotes=maxMap.get(s);
+                voted=s;
+
+            }
+        }
+        return voted;
     }
 
+    public static void findmis(int[][] arr , int value){
+        boolean found=false;
+        for(int i=0;i<arr.length;i++){
+            for (int j = 0; j <arr[i].length ; j++) {
+                if(value==arr[i][j])
+                {
+                    found=true;
+                    break;
+                }
+            }
+        }
+        if(!found){
+            System.out.println("Never saw temperature:"+" "+value);
+        }
+    }
+
+
+    public static Integer findMin(int[][]arr){
+        HashSet <Integer> allTemp=new HashSet<>();
+        for (int i = 0; i < arr.length; i++) {
+
+            for (int j = 0; j < arr[i].length; j++) {
+                allTemp.add(arr[i][j]);
+//                System.out.println(arr[i][j]);
+            }
+        }
+
+
+//        System.out.println("low :"+Collections.min(allTemp));
+        return (Collections.min(allTemp));
+    }
+
+    public static Integer findMAx(int[][]arr){
+        HashSet <Integer> allTemp=new HashSet<>();
+        for (int i = 0; i < arr.length; i++) {
+
+            for (int j = 0; j < arr[i].length; j++) {
+                allTemp.add(arr[i][j]);
+//                System.out.println(arr[i][j]);
+            }
+        }
+
+//        System.out.println("high :"+));
+    return (Collections.max(allTemp));
+    }
 
     public static void lowestAvg(int[][] arr){
         ArrayList<Double> finalArr = new ArrayList<>();
