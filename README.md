@@ -23,3 +23,18 @@
 
 4- **Lowest weekly Month Temperatures average temperatures for Seattle:** calculate the average value for each week and return the array with the lowest average.
 
+<hr>
+
+### Lab-02:Maps, File I/O, and Testing<br>
+
+1- **Maps:** The written method that called findMax/ FindMin and findMiss , to show the high and the low temp and the missing .  <br>
+return an High: 72<br>
+Low: 51<br>
+Never saw temperature: 63<br>
+Never saw temperature: 67<br>
+Never saw temperature: 68<br>
+Never saw temperature: 69<br>
+
+2- **Tallying Election:** The written method that called tally  accepts a List of Strings representing votes and returns one string to show what got the most votes.<br>
+
+3- **linter:** Write a method that reads a JavaScript file with a given Path, and generates an error message whenever it finds a line that doesn’t end in a semi-colon .<br>
