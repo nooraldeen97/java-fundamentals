@@ -3,8 +3,6 @@
  */
 package basiclibrary;
 
-import com.google.common.collect.Sets;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -14,15 +12,14 @@ public class Library {
 
     public static void main(String[] args) {
 
-
         for (int i = 0; i < rolls(4).length; i++) {
             System.out.println(rolls(4)[i]);
         }
 
-        int[] array={1,3,4,5,6};
+        int[] array={};
         System.out.println(containsDuplicates(array));
 
-        System.out.println(arraysAvarege(array));
+        System.out.println(arraysAvg(array));
 
         int[][] weeklyMonthTemperatures = {
                 {66, 64, 58, 65, 71, 57, 60},
@@ -30,12 +27,15 @@ public class Library {
                 {55, 54, 60, 53, 59, 57, 61},
                 {65, 56, 55, 52, 55, 62, 57}
         };
-        lowestAvg(weeklyMonthTemperatures);
-//        findMinMAx(weeklyMonthTemperatures);
+        System.out.println(lowestAvg(weeklyMonthTemperatures));
+
         System.out.println("high:"+" "+ findMAx(weeklyMonthTemperatures));
         System.out.println("low:"+" "+ findMin(weeklyMonthTemperatures));
         for (int i = findMin(weeklyMonthTemperatures); i <=findMAx(weeklyMonthTemperatures) ; i++) {
-            findmis(weeklyMonthTemperatures,i);
+            if(findmis(weeklyMonthTemperatures,i)!=-1){
+                System.out.println("Never saw temperature:"+" "+ findmis(weeklyMonthTemperatures,i));
+            }
+
         }
 
         List<String> votes = new ArrayList<>();
@@ -52,7 +52,12 @@ public class Library {
         String winner = tally(votes);
         System.out.println(winner + " received the most votes!");
         tally(votes);
+
+
     }
+
+
+
     public static String tally(List<String> arr){
     HashMap<String,Integer> maxMap=new HashMap<>();
     String voted="Null";
@@ -77,9 +82,12 @@ public class Library {
             }
         }
         return voted;
+
+
     }
 
-    public static void findmis(int[][] arr , int value){
+
+    public static int findmis(int[][] arr , int value){
         boolean found=false;
         for(int i=0;i<arr.length;i++){
             for (int j = 0; j <arr[i].length ; j++) {
@@ -90,8 +98,11 @@ public class Library {
                 }
             }
         }
-        if(!found){
-            System.out.println("Never saw temperature:"+" "+value);
+        if(!found) {
+            return value;
+        }
+        else{
+            return -1;
         }
     }
 
@@ -125,7 +136,7 @@ public class Library {
     return (Collections.max(allTemp));
     }
 
-    public static void lowestAvg(int[][] arr){
+    public static double lowestAvg(int[][] arr){
         ArrayList<Double> finalArr = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
             double sum=0;
@@ -135,15 +146,19 @@ public class Library {
             finalArr.add(sum/arr[i].length);
         }
 //
-        System.out.println(Collections.min(finalArr));
+        return Collections.min(finalArr);
     }
 
-    public static float arraysAvarege(int[] array){
+    public static float arraysAvg(int[] array){
         float sum=0;
-        for (int i = 0; i <array.length ; i++) {
-            sum=sum+array[i];
+        if(array.length>0) {
+            for (int i = 0; i < array.length; i++) {
+                sum = sum + array[i];
+            }
+            return sum / array.length;
+        }else{
+            return -1;
         }
-        return sum/array.length;
     }
 
     public static boolean containsDuplicates(int[] arr){
