@@ -11,34 +11,44 @@ public class App {
 
 
     public static void main(String[] args) {
-        checkSemiColon();
+        String path="C:/401-projects/java-fundamentals/linter/app/src/main/resources/gates.js";
+        System.out.println(checkSemiColon(path));
     }
 
-    public static void checkSemiColon(){
+    public static int checkSemiColon(String path) {
 
-            File file = new File("C:/401-projects/java-fundamentals/linter/app/src/main/resources/gates.js");
+        File file = new File(path);
+        int numOfErrors = 0;
+        if (file.length() != 0) {
 
-        try {
-            Scanner scanner = new Scanner(file);
-            String line=scanner.nextLine();
-            int lineNum=1;
-            while(scanner.hasNextLine()){
-                if (!line.contains(";")
-                        && !line.endsWith("}")
-                        && !line.endsWith("{")
-                        && !line.contains("if")
-                        && !line.contains("else")
-                        && !line.startsWith("//")
-                        && !line.isBlank())
-                {
-                    System.out.println("Line " + lineNum + ": Missing semicolon.");
+            try {
+                Scanner scanner = new Scanner(file);
+                String line = scanner.nextLine();
+                int lineNum = 1;
+
+
+                while (scanner.hasNextLine()) {
+                    if (!line.contains(";")
+                            && !line.endsWith("}")
+                            && !line.endsWith("{")
+                            && !line.contains("if")
+                            && !line.contains("else")
+                            && !line.startsWith("//")
+                            && !line.isBlank()) {
+                        numOfErrors++;
+                        System.out.println("Line " + lineNum + ": Missing semicolon.");
+                    }
+                    line = scanner.nextLine();
+                    lineNum++;
                 }
-                line=scanner.nextLine();
-                lineNum++;
+            } catch (FileNotFoundException e) {
+                System.out.println("This provided path is wrong !!");
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("This provided path is wrong !!");
+            return numOfErrors;
+        }else{
+            return 0;
         }
-
     }
+
+
 }
