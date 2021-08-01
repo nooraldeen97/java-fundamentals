@@ -38,3 +38,30 @@ Never saw temperature: 69<br>
 2- **Tallying Election:** The written method that called tally  accepts a List of Strings representing votes and returns one string to show what got the most votes.<br>
 
 3- **linter:** Write a method that reads a JavaScript file with a given Path, and generates an error message whenever it finds a line that doesn’t end in a semi-colon .<br>
+
+<hr>
+
+4- **Inheritance and composition:**
+
+In the inheritance folder I have 2 classes : <br>
+- *Restaurant*: In this class there is a constructor to define the variables and there are getters and setters<br>
+there is an array list to store all the reviews for a restaurant.<br>
+- when a review is added the stars for that restaurant is going to change according to the average of the stars<br>
+- there is toString method to print all the defined fields. <br>
+
+- *Review*: In this class there is a constructor to define the variables and there are getters and setters<br>
+- there is toString method to print all the defined fields<br>
+
+- *AddToRev*: This method will add to array list of object a new review , and you can add more than one review for each restaurunt .
+
+In the LibraryTest file there are test for every method: <br>
+
+- testRestaurantConstructor : is a test to make sure the Restaurant constructor is behaving reasonably<br>
+- testReviewConstructor : is a test to make sure the Review constructor is behaving reasonably<br>
+- testToStingReview: to test the toSting method in Review class<br>
+- testToStringRestaurant:to test the toSting method in Restaurant class<br>
+- testAddToRev : to test if addToRev method work fine and added to the resturant a review .<br>
+- testChangeRating: to make sure that when i add a review the rate of restauruant will change to average .<br>
+
+
+
