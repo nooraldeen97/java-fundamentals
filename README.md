@@ -43,7 +43,7 @@ Never saw temperature: 69<br>
 
 4- **Inheritance and composition:**
 
-In the inheritance folder I have 2 classes : <br>
+In the inheritance folder I have 2 classes and 1 interface : <br>
 - *Restaurant*: In this class there is a constructor to define the variables and there are getters and setters<br>
 there is an array list to store all the reviews for a restaurant.<br>
 - when a review is added the stars for that restaurant is going to change according to the average of the stars<br>
@@ -52,16 +52,29 @@ there is an array list to store all the reviews for a restaurant.<br>
 - *Review*: In this class there is a constructor to define the variables and there are getters and setters<br>
 - there is toString method to print all the defined fields<br>
 
-- *AddToRev*: This method will add to array list of object a new review , and you can add more than one review for each restaurunt .
+*Shop*: In this class there is a constructor to define the variables and there are getters and setters<br>
+- I created fields for name, description, numberOfDollarSigns and reviews<br>
+- a method to add reviews to the shop<br>
+- there is toString method to print all the defined fields<br>
+*Theater*: In this class there is a constructor to define the variables and there are getters and setters<br>
+- I created fields for name, Movies, and reviews<br>
+*AddRev*: This method will add to array list of object a new review , and you can add more than one review for <br>each restaurunt .<br>
+*AddReview*: In this interface there is a method that accepts a Review object<br>
+
 
 In the LibraryTest file there are test for every method: <br>
 
 - testRestaurantConstructor : is a test to make sure the Restaurant constructor is behaving reasonably<br>
 - testReviewConstructor : is a test to make sure the Review constructor is behaving reasonably<br>
+- testShopConstructor : is a test to make sure the Shop constructor is behaving reasonably<br>
+- testTheaterConstructor : is a test to make sure the Theater constructor is behaving reasonably<br>
 - testToStingReview: to test the toSting method in Review class<br>
 - testToStringRestaurant:to test the toSting method in Restaurant class<br>
-- testAddToRev : to test if addToRev method work fine and added to the resturant a review .<br>
+- testToStringShop:to test the toSting method in Shop class<br>
+- testToStringTheater:to test the toSting method in Theater class<br>
+- testAddRev : to test if addToRev method work fine and added to the resturant a review .<br>
 - testChangeRating: to make sure that when i add a review the rate of restauruant will change to average .<br>
-
-
-
+- ShopConstTest: test the constructor in the shop class<br>
+- AddShopReviewTest: test if add review works for the shops<br>
+- AddRemoveMovieTest: test if we can add and remove movies<br>
+- AddTheaterReviewTest: test if add review works for the theater with and without the movie name<br>
