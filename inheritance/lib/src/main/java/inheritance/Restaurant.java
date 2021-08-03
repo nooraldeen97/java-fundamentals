@@ -2,7 +2,7 @@ package inheritance;
 
 import java.util.ArrayList;
 
-public class Restaurant {
+public class Restaurant implements AddReview{
     public String name;
     public double numberOfStars;
     public int priceCategory;
@@ -11,7 +11,7 @@ public class Restaurant {
 
     public Restaurant(String name,int numberOfStars,int priceCategory){
         this.name=name;
-         if ((numberOfStars < 0) || (numberOfStars >5)) {
+        if ((numberOfStars < 0) || (numberOfStars >5)) {
             System.out.println("value is out of range for a number of stars , it should be (0-5)");
         }else {
             this.numberOfStars = numberOfStars;
@@ -50,17 +50,15 @@ public class Restaurant {
         this.priceCategory = priceCategory;
     }
 
-    public void addToRev(String body, String author, int numberOfStars){
-
-        Review review = new Review( body, author,numberOfStars);
-
-        this.numberOfStars = (this.numberOfStars*counter + review.numberOfStars) / ++counter;
-
-        this.ArrayListReview.add(review);
-
-    }
-
-
+//    public void addToRev(String body, String author, int numberOfStars){
+//
+//        Review review = new Review( body, author,numberOfStars);
+//
+//        this.numberOfStars = (this.numberOfStars*counter + review.numberOfStars) / ++counter;
+//
+//        this.ArrayListReview.add(review);
+//
+//    }
 
 
 
@@ -73,5 +71,12 @@ public class Restaurant {
                 ", priceCategory is " + priceCategory +
                 ", Reviews" + ArrayListReview +
                 '}';
+    }
+
+    @Override
+    public void addRev(Review review) {
+        this.numberOfStars = (this.numberOfStars*counter + review.numberOfStars) / ++counter;
+
+        this.ArrayListReview.add(review);
     }
 }
